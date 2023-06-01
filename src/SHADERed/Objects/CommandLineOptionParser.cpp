@@ -47,6 +47,8 @@ namespace ed {
 		CMakePath = "";
 
 		AlwaysOnTop = false;
+		WindowInitPositionX = -1;
+		WindowInitPositionY = -1;
 	}
 	void CommandLineOptionParser::Parse(const std::filesystem::path& cmdDir, int argc, char* argv[])
 	{
@@ -84,6 +86,24 @@ namespace ed {
 			// --alwaysontop, -a
 			else if (strcmp(argv[i], "--alwaysontop") == 0 || strcmp(argv[i], "-a") == 0) {
 				AlwaysOnTop = true;
+			}
+			// --positionx, -wx
+			else if (strcmp(argv[i], "--positionx") == 0 || strcmp(argv[i], "-wx") == 0) {
+				int pos = -1;
+				if (i + 1 < argc) {
+					pos = atoi(argv[i + 1]);
+					i++;
+				}
+				WindowInitPositionX = pos;
+			}
+			// --positionym -wy
+			else if (strcmp(argv[i], "--positiony") == 0 || strcmp(argv[i], "-wy") == 0) {
+				int pos = -1;
+				if (i + 1 < argc) {
+					pos = atoi(argv[i + 1]);
+					i++;
+				}
+				WindowInitPositionY = pos;
 			}
 			// --performance, -p
 			else if (strcmp(argv[i], "--performance") == 0 || strcmp(argv[i], "-p") == 0) {
@@ -309,6 +329,8 @@ namespace ed {
 					{ "--minimal | -m", "launch SHADERed with no UI" },
 					{ "--wwidth | -ww <width>", "set window width" },
 					{ "--wheight | -wh <height>", "set window height" },
+					{ "--positionx | -wx <horizontal position>", "set initial horizontal window position" },
+					{ "--positiony | -wy <vertical position>", "set initial vertical window position" },
 					{ "--fullscreen | -fs", "launch SHADERed in fullscreen mode" },
 					{ "--maxmimized | -max", "maximize SHADERed's window" },
 					{ "--alwaysontop | -a", "launch SHADERed in always on top mode" },

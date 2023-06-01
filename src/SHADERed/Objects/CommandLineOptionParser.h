@@ -40,5 +40,6 @@ namespace ed {
 		std::string CMakePath;
 
         bool AlwaysOnTop;
+		int WindowInitPositionX, WindowInitPositionY;
 	};
 }

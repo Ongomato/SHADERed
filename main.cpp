@@ -194,6 +194,20 @@ int main(int argc, char* argv[])
 		wndWidth = coptsParser.WindowWidth;
 	if (coptsParser.WindowHeight > 0)
 		wndHeight = coptsParser.WindowHeight;
+	if (coptsParser.WindowInitPositionX > -1) {
+		wndPosX = coptsParser.WindowInitPositionX;
+		SDL_DisplayMode desk;
+		SDL_GetCurrentDisplayMode(0, &desk);
+		if (wndPosX > desk.w-wndWidth)
+			wndPosX = desk.w-wndWidth;
+	}
+	if (coptsParser.WindowInitPositionY > -1) {
+		wndPosY = coptsParser.WindowInitPositionY;
+		SDL_DisplayMode desk;
+		SDL_GetCurrentDisplayMode(0, &desk);
+		if (wndPosY > desk.h-wndHeight)
+			wndPosY = desk.h-wndHeight;
+	}
 	perfMode = perfMode || coptsParser.PerformanceMode;
 	fullscreen = fullscreen || coptsParser.Fullscreen;
 	maximized = maximized || coptsParser.Maximized;
