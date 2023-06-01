@@ -38,5 +38,7 @@ namespace ed {
 
 		bool ConvertCPP;
 		std::string CMakePath;
+
+        bool AlwaysOnTop;
 	};
 }

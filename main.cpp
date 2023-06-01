@@ -223,6 +223,8 @@ int main(int argc, char* argv[])
 		SDL_MaximizeWindow(wnd);
 	if (fullscreen)
 		SDL_SetWindowFullscreen(wnd, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	if (coptsParser.AlwaysOnTop)
+		SDL_SetWindowAlwaysOnTop(wnd, SDL_TRUE);
 
 	// get GL context
 	SDL_GLContext glContext = SDL_GL_CreateContext(wnd);

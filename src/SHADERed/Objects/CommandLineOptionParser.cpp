@@ -45,6 +45,8 @@ namespace ed {
 
 		ConvertCPP = false;
 		CMakePath = "";
+
+		AlwaysOnTop = false;
 	}
 	void CommandLineOptionParser::Parse(const std::filesystem::path& cmdDir, int argc, char* argv[])
 	{
@@ -78,6 +80,10 @@ namespace ed {
 			// --maximized, -max
 			else if (strcmp(argv[i], "--maxmimized") == 0 || strcmp(argv[i], "-max") == 0) {
 				Maximized = true;
+			}
+			// --alwaysontop, -a
+			else if (strcmp(argv[i], "--alwaysontop") == 0 || strcmp(argv[i], "-a") == 0) {
+				AlwaysOnTop = true;
 			}
 			// --performance, -p
 			else if (strcmp(argv[i], "--performance") == 0 || strcmp(argv[i], "-p") == 0) {
@@ -305,6 +311,7 @@ namespace ed {
 					{ "--wheight | -wh <height>", "set window height" },
 					{ "--fullscreen | -fs", "launch SHADERed in fullscreen mode" },
 					{ "--maxmimized | -max", "maximize SHADERed's window" },
+					{ "--alwaysontop | -a", "launch SHADERed in always on top mode" },
 					{ "--performance | -p", "launch SHADERed in performance mode" },
 					{ "--render | -r <file>", "render to a file" },
 					{ "--renderwidth | -rw <width>", "set the output image width" },
