@@ -49,6 +49,7 @@ namespace ed {
 		AlwaysOnTop = false;
 		WindowInitPositionX = -1;
 		WindowInitPositionY = -1;
+		Borderless = false;
 	}
 	void CommandLineOptionParser::Parse(const std::filesystem::path& cmdDir, int argc, char* argv[])
 	{
@@ -86,6 +87,10 @@ namespace ed {
 			// --alwaysontop, -a
 			else if (strcmp(argv[i], "--alwaysontop") == 0 || strcmp(argv[i], "-a") == 0) {
 				AlwaysOnTop = true;
+			}
+			// --borderless, -b
+			else if (strcmp(argv[i], "--borderless") == 0 || strcmp(argv[i], "-b") == 0) {
+				Borderless = true;
 			}
 			// --positionx, -wx
 			else if (strcmp(argv[i], "--positionx") == 0 || strcmp(argv[i], "-wx") == 0) {
@@ -334,6 +339,7 @@ namespace ed {
 					{ "--fullscreen | -fs", "launch SHADERed in fullscreen mode" },
 					{ "--maxmimized | -max", "maximize SHADERed's window" },
 					{ "--alwaysontop | -a", "launch SHADERed in always on top mode" },
+					{ "--borderless | -b", "launch SHADERed in borderless mode" },
 					{ "--performance | -p", "launch SHADERed in performance mode" },
 					{ "--render | -r <file>", "render to a file" },
 					{ "--renderwidth | -rw <width>", "set the output image width" },

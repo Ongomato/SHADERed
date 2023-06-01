@@ -41,5 +41,6 @@ namespace ed {
 
         bool AlwaysOnTop;
 		int WindowInitPositionX, WindowInitPositionY;
+		bool Borderless;
 	};
 }

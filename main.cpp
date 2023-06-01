@@ -239,6 +239,8 @@ int main(int argc, char* argv[])
 		SDL_SetWindowFullscreen(wnd, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	if (coptsParser.AlwaysOnTop)
 		SDL_SetWindowAlwaysOnTop(wnd, SDL_TRUE);
+	if (coptsParser.Borderless)
+		SDL_SetWindowBordered(wnd, SDL_FALSE);
 
 	// get GL context
 	SDL_GLContext glContext = SDL_GL_CreateContext(wnd);
